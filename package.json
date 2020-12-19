@@ -4,7 +4,9 @@
   "author": "yohei-yamazaki <y.y.takkyuu.love@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [],
+  "workspaces": [
+    "deployment"
+  ],
   "scripts": {
     "codegen": "graphql-codegen --config graphql-codegen.yaml",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
