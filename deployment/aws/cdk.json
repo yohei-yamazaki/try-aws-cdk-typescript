@@ -8,6 +8,7 @@
     "@aws-cdk/aws-secretsmanager:parseOwnedSecretName": true,
     "@aws-cdk/aws-kms:defaultKeyPolicies": true,
     "appName": "hello",
-    "env": "dev"
+    "env": "dev",
+    "region": "ap-northeast-1"
   }
 }
