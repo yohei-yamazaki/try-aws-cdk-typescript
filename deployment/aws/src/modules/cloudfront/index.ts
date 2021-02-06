@@ -3,14 +3,14 @@ import { Construct } from '@aws-cdk/core';
 
 import { Context } from '../../types/context';
 
-type Props = {
+export type CloudFrontProps = {
   domainName: string;
   // aliases: string;
   // acmCertificateArn: string;
 } & Context;
 
 export class CloudFront extends Construct {
-  constructor(parent: Construct, name: string, { domainName }: Props) {
+  constructor(parent: Construct, name: string, { domainName }: CloudFrontProps) {
     super(parent, name);
 
     new cloudfront.CloudFrontWebDistribution(this, 'SiteDistribution', {
