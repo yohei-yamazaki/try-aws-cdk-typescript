@@ -2,7 +2,7 @@ import * as s3 from '@aws-cdk/aws-s3';
 import * as cdk from '@aws-cdk/core';
 import { Construct } from '@aws-cdk/core';
 
-import { Context } from '../types/context';
+import { Context } from '../../types/context';
 
 type Props = {
   bucketName: string;
