@@ -4,12 +4,12 @@ import { Construct } from '@aws-cdk/core';
 
 import { Context } from '../../types/context';
 
-type Props = {
+export type S3Props = {
   bucketName: string;
 } & Context;
 
 export class S3 extends Construct {
-  constructor(parent: Construct, name: string, { bucketName, appName, env }: Props) {
+  constructor(parent: Construct, name: string, { bucketName, appName, env }: S3Props) {
     super(parent, name);
 
     new s3.Bucket(this, 'webBucket', {
