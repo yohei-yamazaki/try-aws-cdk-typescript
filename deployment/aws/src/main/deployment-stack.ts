@@ -13,6 +13,8 @@ export class DeploymentStack extends cdk.Stack {
       region: this.node.tryGetContext('region'),
     };
 
+    // TODO: envごとにconfigファイルを切り替える
+
     new S3(this, 'StaticSite', {
       bucketName: 'web',
       ...context,
