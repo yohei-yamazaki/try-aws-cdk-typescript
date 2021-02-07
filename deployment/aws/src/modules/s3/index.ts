@@ -9,15 +9,19 @@ export type S3Props = {
 } & Context;
 
 export class S3 extends Construct {
+  readonly bucketDomainName: string;
+
   constructor(parent: Construct, name: string, { bucketName, appName, env }: S3Props) {
     super(parent, name);
 
-    new s3.Bucket(this, 'webBucket', {
+    const bucket = new s3.Bucket(this, 'webBucket', {
       bucketName: `${env}-${appName}-${bucketName}`,
       websiteIndexDocument: 'index.html',
       websiteErrorDocument: 'error.html',
 
       removalPolicy: env === 'prd' ? cdk.RemovalPolicy.DESTROY : undefined,
     });
+
+    this.bucketDomainName = bucket.bucketDomainName;
   }
 }
