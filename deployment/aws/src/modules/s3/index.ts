@@ -9,7 +9,7 @@ export type S3Props = {
 } & Context;
 
 export class S3 extends Construct {
-  readonly bucketDomainName: string;
+  readonly bucket: s3.Bucket;
 
   constructor(parent: Construct, name: string, { bucketName, appName, env }: S3Props) {
     super(parent, name);
@@ -22,6 +22,6 @@ export class S3 extends Construct {
       removalPolicy: env === 'prd' ? cdk.RemovalPolicy.DESTROY : undefined,
     });
 
-    this.bucketDomainName = bucket.bucketDomainName;
+    this.bucket = bucket;
   }
 }
