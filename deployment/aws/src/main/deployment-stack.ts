@@ -3,6 +3,8 @@ import * as cdk from '@aws-cdk/core';
 import { S3 } from '../modules/s3';
 import { Context } from '../types/context';
 
+import { Web } from './web';
+
 export class DeploymentStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -15,9 +17,6 @@ export class DeploymentStack extends cdk.Stack {
 
     // TODO: envごとにconfigファイルを切り替える
 
-    new S3(this, 'StaticSite', {
-      bucketName: 'web',
-      ...context,
-    });
+    new Web(this, 'web', { bucketName: 'web', ...context });
   }
 }
